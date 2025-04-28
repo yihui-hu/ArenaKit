@@ -1,7 +1,7 @@
 public enum ChannelStatus: String, Decodable, Sendable {
     case open = "open"
     case closed = "closed"
-    case priv = "private"
+    case `private` = "private"
     case `public` = "public"
 }
 
