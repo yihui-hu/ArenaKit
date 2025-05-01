@@ -156,11 +156,25 @@ extension ArenaAPIClient {
     /// Fetch contents (blocks) of a channel.
     public func getChannelContents(
         channelId: Int,
-        page: Int = 1
+        page: Int = 1,
+        sort: Sort = .position,
+        direction: Direction = .desc
     ) async throws -> ChannelContents {
         try await performRequest(
             path: "/v2/channels/\(channelId)/contents",
-            queryItems: [.init(name: "page", value: "\(page)")]
+            queryItems: [
+                .init(name: "page", value: "\(page)"),
+                .init(name: "sort", value: "\(sort)"),
+                .init(name: "direction", value: "\(direction)")
+            ]
+        )
+    }
+    
+    public func getChannelThumbnails(
+        channelId: Int
+    ) async throws -> ChannelContents {
+        try await performRequest(
+            path: "/v2/channels/\(channelId)/thumb"
         )
     }
 

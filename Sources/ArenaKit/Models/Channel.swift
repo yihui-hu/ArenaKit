@@ -16,6 +16,7 @@ public struct Channel: Decodable, Identifiable, Hashable, Sendable {
     public let status: ChannelStatus?
     public let length: Int
     public let contents: [Block]?
+    public let metadata: Metadata?
     public let user: User
     
     enum CodingKeys: String, CodingKey {
@@ -25,6 +26,7 @@ public struct Channel: Decodable, Identifiable, Hashable, Sendable {
         case status
         case length
         case contents
+        case metadata
         case user
     }
 }
