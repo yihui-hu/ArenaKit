@@ -22,6 +22,7 @@ public struct Block: Decodable, Hashable, Sendable {
 
 public struct BlockImage: Decodable, Hashable, Sendable {
     public let filename: String
+    public let contentType: String
     public let thumb: BlockImageData
     public let square: BlockImageData
     public let display: BlockImageData
@@ -30,6 +31,7 @@ public struct BlockImage: Decodable, Hashable, Sendable {
     
     enum CodingKeys: String, CodingKey {
         case filename
+        case contentType = "content_type"
         case thumb
         case square
         case display
